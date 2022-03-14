@@ -5,7 +5,6 @@ import { readdirSync } from "fs";
 import User from "./model/User";
 require("dotenv").config();
 const app = express();
-const http = require("http").createServer(app);
 import route from './auth'
 // db
 mongoose
@@ -35,7 +34,7 @@ mongoose
 
 
 
+  const port = process.env.PORT || 8000;
 
-app.listen(8000, () => {
-  console.log("Server is running");
-});
+app.listen(port, () => console.log(`Server running on port ${port}`));
+
